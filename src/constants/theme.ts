@@ -1,16 +1,9 @@
 export const Colors = {
   light: {
-    text: '#33323C',
-    light_text: '#ECEDF2',
-    background: '#ECEDF2',
-    primary: '#2996F3',
-    secondary: '#FEEAEA',
-    tertiary: '#2996F3',
-    surface: '#FFFFFF',
-    background_color_modal: 'rgba(0,0,0,0.1)',
-    grey: '#B0B0B0',
-    warning_text: '#f25d4cff',
-    disabled: '#dededeff',
+    text: '#434141',
+    background: '#FBFAFF',
+    grey: '#BFBFC0',
+    red: '#EC537E',
   },
 }
 
@@ -32,15 +25,15 @@ export const font = {
   light: 'FT Base Light',
   regular: 'FT Base Regular',
   medium: 'FT Base Medium',
+  bold: 'FT Base Bold',
 }
 
 export const typography = {
-  titleLarge: {
-    fontFamily: font.medium,
-    fontSize: 18,
-    fontWeight: '500',
-    letterSpacing: 0.15,
-    lineHeight: 24,
+  bigText: {
+    fontFamily: font.bold,
+    fontSize: 126,
+    fontWeight: '700',
+    letterSpacing: 0,
   },
   titleMedium: {
     fontFamily: font.medium,
@@ -48,19 +41,5 @@ export const typography = {
     fontWeight: '400',
     letterSpacing: 0.15,
     lineHeight: 20,
-  },
-  bodyLarge: {
-    fontFamily: font.regular,
-    fontSize: 14,
-    fontWeight: '500',
-    letterSpacing: 0.15,
-    lineHeight: 20,
-  },
-  bodySmall: {
-    fontFamily: font.regular,
-    fontSize: 12,
-    fontWeight: '400',
-    letterSpacing: 0.15,
-    lineHeight: 16,
   },
 }

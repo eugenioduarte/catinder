@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-// ...restante do código...
-import { navigationRef } from './navigationRef'
+
 import BottomTabNavigator from './BottomTabNavigator'
+import { navigationRef } from './navigationRef'
 
 export default function Navigation() {
   return (
