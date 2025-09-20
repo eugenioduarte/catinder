@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Catinder",
+    "slug": "catinder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/splash_icon.png",
+    "scheme": "catinder",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/splash_icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/images/splash_icon.png"
+    },
+    "splash": {
+      "image": "./assets/images/splash_icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
