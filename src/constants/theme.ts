@@ -1,3 +1,5 @@
+import { TextStyle } from 'react-native'
+
 export const Colors = {
   light: {
     text: '#434141',
@@ -28,7 +30,7 @@ export const font = {
   bold: 'FT Base Bold',
 }
 
-export const typography = {
+export const typography: Record<string, TextStyle> = {
   bigText: {
     fontFamily: font.bold,
     fontSize: 126,

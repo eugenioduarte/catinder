@@ -10,9 +10,9 @@ type Props = {
 }
 
 const tabs = [
-  { value: NavigationScreenName.Dashboard, Icon: CatIcon },
-  { value: NavigationScreenName.Chat, Icon: MessageIcon },
-  { value: NavigationScreenName.Profile, Icon: UserIcon },
+  { value: NavigationScreenName.Dashboard, Icon: CatIcon, label: 'Dashboard' },
+  { value: NavigationScreenName.Chat, Icon: MessageIcon, label: 'Chat' },
+  { value: NavigationScreenName.Profile, Icon: UserIcon, label: 'Profile' },
 ]
 
 const BottomBar = ({ current, onChange }: Props) => {
@@ -28,6 +28,7 @@ const BottomBar = ({ current, onChange }: Props) => {
               key={tab.value}
               style={styles.tab}
               onPress={() => onChange(tab.value)}
+              testID={`bottomBar${tab.label}`}
             >
               <Icon
                 width={20}
