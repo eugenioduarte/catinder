@@ -4,8 +4,9 @@
     "types": ["jest"],
     "jsx": "react",
     "strict": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["src/*"]
     },
     "moduleResolution": "bundler"
   },

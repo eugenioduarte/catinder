@@ -1,5 +1,7 @@
+import { useTheme } from '@/hooks/useTheme'
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { CatIcon, MessageIcon, UserIcon } from '../../../assets/icons'
 import { NavigationScreenName } from '../../navigation/screens'
 
 type Props = {
@@ -8,54 +10,82 @@ type Props = {
 }
 
 const tabs = [
-  { label: 'Dashboard', value: NavigationScreenName.Dashboard },
-  { label: 'Chat', value: NavigationScreenName.Chat },
-  { label: 'Profile', value: NavigationScreenName.Profile },
+  { value: NavigationScreenName.Dashboard, Icon: CatIcon },
+  { value: NavigationScreenName.Chat, Icon: MessageIcon },
+  { value: NavigationScreenName.Profile, Icon: UserIcon },
 ]
 
-const BottomBar = ({ current, onChange }: Props) => (
-  <View style={styles.container}>
-    {tabs.map((tab) => (
-      <TouchableOpacity
-        key={tab.value}
-        style={[styles.tab, current === tab.value && styles.activeTab]}
-        onPress={() => onChange(tab.value)}
-      >
-        <Text style={current === tab.value ? styles.activeText : styles.text}>
-          {tab.label}
-        </Text>
-      </TouchableOpacity>
-    ))}
-  </View>
-)
+const BottomBar = ({ current, onChange }: Props) => {
+  const theme = useTheme()
+
+  return (
+    <View style={styles.fabWrapper} pointerEvents="box-none">
+      <View style={styles.container}>
+        {tabs.map((tab) => {
+          const Icon = tab.Icon
+          return (
+            <TouchableOpacity
+              key={tab.value}
+              style={styles.tab}
+              onPress={() => onChange(tab.value)}
+            >
+              <Icon
+                width={20}
+                height={20}
+                color={current === tab.value ? theme.colors.red : 'black'}
+              />
+            </TouchableOpacity>
+          )
+        })}
+      </View>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
+  fabWrapper: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 32,
+    alignItems: 'center',
+    zIndex: 100,
+    pointerEvents: 'box-none',
+  },
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
-    height: 60,
-    borderTopWidth: 1,
-    borderColor: '#eee',
+    justifyContent: 'center',
     backgroundColor: '#fff',
+    borderRadius: 36,
+    width: 156,
+    height: 44,
+    paddingTop: 12,
+    paddingBottom: 12,
+    paddingLeft: 24,
+    paddingRight: 24,
+    gap: 24,
+    shadowColor: '#BFBFC0',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 8,
   },
   tab: {
-    flex: 1,
     alignItems: 'center',
-    paddingVertical: 10,
-  },
-  activeTab: {
-    borderTopWidth: 2,
-    borderTopColor: '#007AFF',
+    justifyContent: 'center',
+    height: 20,
+    width: 20,
   },
   text: {
-    color: '#888',
-    fontSize: 16,
+    color: '#222',
+    fontSize: 14,
+    fontWeight: '400',
   },
   activeText: {
-    color: '#007AFF',
-    fontWeight: 'bold',
-    fontSize: 16,
+    color: '#FF5A7D', // Rosa para o ativo (pata)
+    fontSize: 14,
+    fontWeight: '700',
   },
 })
 
