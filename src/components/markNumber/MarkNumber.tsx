@@ -1,19 +1,20 @@
 import Text from '@/components/text/Text'
 import { useTheme } from '@/hooks/useTheme'
-import { Theme } from '@/types/theme.type'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View } from 'react-native'
+import { markNumberStyles } from './MarkNumber.styles'
 
 type MarkNumberProps = {
   text: string
 }
+
 const MarkNumber = ({ text }: MarkNumberProps) => {
   const theme = useTheme()
   const styles = markNumberStyles(theme)
 
   return (
-    <View style={styles.container}>
-      <Text variant="bigText" style={styles.text}>
+    <View style={styles.container} testID="mark-number">
+      <Text variant="nunitoBold126" style={styles.text}>
         {text}
       </Text>
     </View>
@@ -21,16 +22,3 @@ const MarkNumber = ({ text }: MarkNumberProps) => {
 }
 
 export default MarkNumber
-
-const markNumberStyles = (theme: Theme) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'flex-start',
-      paddingTop: 120,
-    },
-    text: {
-      color: theme.colors.grey,
-    },
-  })

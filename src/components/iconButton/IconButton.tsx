@@ -1,11 +1,24 @@
+import { useTheme } from '@/hooks/useTheme'
 import React from 'react'
-import { Text, View } from 'react-native'
+import {
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ViewStyle,
+} from 'react-native'
+import { iconButtonStyles } from './IconButton.styles'
 
-const IconButton = () => {
+type Props = TouchableOpacityProps & {
+  children: React.ReactNode
+  style?: ViewStyle | ViewStyle[]
+}
+
+const IconButton = ({ children, style, ...rest }: Props) => {
+  const theme = useTheme()
+  const styles = iconButtonStyles(theme)
   return (
-    <View>
-      <Text>IconButton</Text>
-    </View>
+    <TouchableOpacity style={[styles.button, style]} {...rest}>
+      {children}
+    </TouchableOpacity>
   )
 }
 

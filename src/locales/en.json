@@ -1,12 +1,13 @@
 {
-  "common": {
-    "loading": "Loading...",
-    "error": "An error occurred",
-    "noData": "No data available",
-    "search": "Search",
-    "clear": "Clear",
-    "apply": "Apply",
-    "cancel": "Cancel",
-    "close": "Close"
+  "common": {},
+  "snackbar": {
+    "error": "Unable to fetch cats. Please try again."
+  },
+  "emptyState": {
+    "title": "You’ve seen all the cats in your area. Come back later!"
+  },
+  "SwipeOverlay": {
+    "like": "like",
+    "nope": "nope"
   }
 }

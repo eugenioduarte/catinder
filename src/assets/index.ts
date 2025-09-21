@@ -1,0 +1,7 @@
+export { default as CatIcon } from './cat-1.svg'
+export { default as HeartIcon } from './heart.svg'
+export { default as TinderLogo } from './logo.svg'
+export { default as MessageIcon } from './message-circle.svg'
+export { default as StarIcon } from './star.svg'
+export { default as UserIcon } from './user.svg'
+export { default as CloseIcon } from './x.svg'

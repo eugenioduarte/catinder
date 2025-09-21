@@ -1,8 +1,9 @@
 import { useTheme } from '@/hooks/useTheme'
 import React from 'react'
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import { CatIcon, MessageIcon, UserIcon } from '../../../assets/icons'
+import { TouchableOpacity, View } from 'react-native'
+import { CatIcon, MessageIcon, UserIcon } from '../../assets'
 import { NavigationScreenName } from '../../navigation/screens'
+import { bottomBarStyles } from './BottomBar.styles'
 
 type Props = {
   current: NavigationScreenName
@@ -17,7 +18,7 @@ const tabs = [
 
 const BottomBar = ({ current, onChange }: Props) => {
   const theme = useTheme()
-
+  const styles = bottomBarStyles(theme)
   return (
     <View style={styles.fabWrapper} pointerEvents="box-none">
       <View style={styles.container}>
@@ -42,52 +43,5 @@ const BottomBar = ({ current, onChange }: Props) => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  fabWrapper: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 32,
-    alignItems: 'center',
-    zIndex: 100,
-    pointerEvents: 'box-none',
-  },
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 36,
-    width: 156,
-    height: 44,
-    paddingTop: 12,
-    paddingBottom: 12,
-    paddingLeft: 24,
-    paddingRight: 24,
-    gap: 24,
-    shadowColor: '#BFBFC0',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.3,
-    shadowRadius: 16,
-    elevation: 8,
-  },
-  tab: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 20,
-    width: 20,
-  },
-  text: {
-    color: '#222',
-    fontSize: 14,
-    fontWeight: '400',
-  },
-  activeText: {
-    color: '#FF5A7D', // Rosa para o ativo (pata)
-    fontSize: 14,
-    fontWeight: '700',
-  },
-})
 
 export default BottomBar

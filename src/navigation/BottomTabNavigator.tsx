@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 
 import BottomBar from '../components/bottomBar/BottomBar'
-import ChatScreen from '../screens/ChatScreen'
+import ChatScreen from '../screens/ChatScreen/ChatScreen'
 import DashboardScreen from '../screens/DashboardScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import { NavigationScreenName } from './screens'
