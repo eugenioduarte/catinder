@@ -23,16 +23,28 @@ jest.mock('@/components/header/Header', () => {
   Header.displayName = 'Header'
   return Header
 })
+
 jest.mock('@/components/catSwipe/CatSwipe', () => {
+  const React = require('react')
   const { Text } = require('react-native')
-  const CatSwipe = ({ handleLike }: any) => (
-    <Text testID="cat-swipe" onPress={() => handleLike(true)}>
-      CatSwipe
-    </Text>
+
+  const CatSwipe = React.forwardRef(
+    ({ handleLike, catsList, currentIndex }: any, ref: any) => {
+      React.useImperativeHandle(ref, () => ({
+        swipe: (isLiked: boolean) => handleLike(isLiked),
+      }))
+      const cat = catsList?.[currentIndex]
+      return (
+        <Text testID="cat-swipe" onPress={() => handleLike(true)}>
+          CatSwipe-{cat?.id}
+        </Text>
+      )
+    },
   )
   CatSwipe.displayName = 'CatSwipe'
   return CatSwipe
 })
+
 jest.mock('./Components/ContainerIconButtons', () => {
   const { Text } = require('react-native')
   const ContainerIconButtons = ({ handleLike }: any) => (
@@ -43,6 +55,7 @@ jest.mock('./Components/ContainerIconButtons', () => {
   ContainerIconButtons.displayName = 'ContainerIconButtons'
   return ContainerIconButtons
 })
+
 jest.mock('./Components/LoadingCard', () => {
   const { Text } = require('react-native')
   const LoadingCard = () => <Text testID="loading-card">LoadingCard</Text>
@@ -72,9 +85,7 @@ describe('DashboardScreen', () => {
       isLoading: false,
       error: null,
     })
-    ;(useVoteForCat as jest.Mock).mockReturnValue({
-      mutate: jest.fn(),
-    })
+    ;(useVoteForCat as jest.Mock).mockReturnValue({ mutate: jest.fn() })
 
     const { getByTestId } = render(<DashboardScreen />)
 
@@ -90,9 +101,7 @@ describe('DashboardScreen', () => {
       isLoading: false,
       error: null,
     })
-    ;(useVoteForCat as jest.Mock).mockReturnValue({
-      mutate: mutateMock,
-    })
+    ;(useVoteForCat as jest.Mock).mockReturnValue({ mutate: mutateMock })
 
     const { getByTestId } = render(<DashboardScreen />)
 
@@ -111,9 +120,7 @@ describe('DashboardScreen', () => {
       isLoading: false,
       error: null,
     })
-    ;(useVoteForCat as jest.Mock).mockReturnValue({
-      mutate: mutateMock,
-    })
+    ;(useVoteForCat as jest.Mock).mockReturnValue({ mutate: mutateMock })
 
     const { getByTestId } = render(<DashboardScreen />)
 
@@ -137,21 +144,18 @@ describe('DashboardScreen', () => {
       isLoading: false,
       error: null,
     })
-    ;(useVoteForCat as jest.Mock).mockReturnValue({
-      mutate: mutateMock,
-    })
+    ;(useVoteForCat as jest.Mock).mockReturnValue({ mutate: mutateMock })
 
     const { getByTestId } = render(<DashboardScreen />)
 
     fireEvent.press(getByTestId('cat-swipe'))
-    onSuccessFn()
+    await waitFor(() => onSuccessFn())
 
-    await waitFor(() => {
-      fireEvent.press(getByTestId('container-buttons'))
-      expect(mutateMock).toHaveBeenLastCalledWith(
-        { image_id: '2', value: 0 },
-        expect.any(Object),
-      )
-    })
+    fireEvent.press(getByTestId('container-buttons'))
+
+    expect(mutateMock).toHaveBeenLastCalledWith(
+      { image_id: '2', value: 0 },
+      expect.any(Object),
+    )
   })
 })

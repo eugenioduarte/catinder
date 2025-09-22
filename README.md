@@ -1,55 +1,48 @@
-# Blank React Native Template
+# Cat Tinder Challenge
 
-Template para iniciar novos projetos React Native (Expo) com estrutura de pastas e arquivos já pronta.
+Um desafio de React Native/Expo inspirado no Tinder, mas para gatos! O objetivo é treinar swipe, animações, integração com API, internacionalização e boas práticas de arquitetura.
 
-## Tecnologias sugeridas
+## Sobre o projeto
 
-- React Native
-- Expo
-- Zustand
-- AsyncStorage
-- React Navigation
-- React Native Reanimated
-- Testing Library
-- Jest
-- ESLint + Prettier + Husky
+O app permite que o usuário dê like/dislike em gatos, consumindo dados da TheCatAPI. O fluxo é todo animado, com navegação, tema centralizado, tipografia customizada e internacionalização.
 
-## Como usar
+### Principais features
 
-1. Clone este repositório
-2. Renomeie o projeto e personalize conforme necessário
-3. Instale as dependências:
+- Swipe animado de cards de gatos
+- Votação (like/dislike) via swipe ou botões
+- Integração com TheCatAPI
+- Internacionalização (i18n)
+- Snackbar para feedback de erro
+- Tipografia e tema customizados
+- Estrutura modular e pronta para escalar
+
+## Screenshot
+
+![Screenshot do app](./assets/screenshots/screenshot.png)
+
+## Como rodar
+
+1. Instale as dependências:
    ```bash
    yarn
    # ou
    npm install
    ```
-4. Inicie o app com Expo:
+2. Inicie o app com Expo:
    ```bash
    npx expo start
    ```
 
-## 📱 Available Scripts
+## Scripts principais
 
-- `npm start` → start the app with Expo
-- `npm run android` → run on Android emulator/device
-- `npm run ios` → run on iOS simulator
-- `npm run web` → run on web browser
-- `npm run lint` → run ESLint
-- `npm run format` → format code with Prettier
-- `npm run test` → run tests
-- `npm run test:watch` → run tests in watch mode
-- `npm run test:coverage` → generate coverage report
+- `npm start` / `yarn start` → inicia o app com Expo
+- `npm run android` / `yarn android` → roda no emulador/dispositivo Android
+- `npm run ios` / `yarn ios` → roda no simulador iOS
+- `npm run lint` / `yarn lint` → lint do código
+- `npm run format` / `yarn format` → formata o código
+- `npm run test` / `yarn test` → executa os testes
+- `npm run test:coverage` / `yarn test:coverage` → coverage dos testes
 
-## 🧪 Testing
+---
 
-```bash
-# Run tests
-npm run test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Generate coverage report
-npm run test:coverage
-```
+Desafio para fins de estudo e demonstração de arquitetura React Native moderna.

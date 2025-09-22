@@ -13,6 +13,7 @@ export const headerStyles = (theme: Theme, selected?: boolean) =>
       justifyContent: 'space-between',
       borderRadius: theme.border.radiusLarge,
       paddingHorizontal: 2,
+      marginTop: theme.spacings.medium,
     },
     iconButton: {
       width: 40,

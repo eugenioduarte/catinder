@@ -7,7 +7,7 @@ export const bottomBarStyles = (theme: Theme) =>
       position: 'absolute',
       left: 0,
       right: 0,
-      bottom: theme.spacings.xLarge,
+      bottom: 0,
       alignItems: 'center',
       zIndex: 100,
       pointerEvents: 'box-none',
